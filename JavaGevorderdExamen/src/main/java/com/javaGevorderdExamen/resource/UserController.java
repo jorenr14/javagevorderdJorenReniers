@@ -23,17 +23,22 @@ public class UserController {
 
 
     @PostMapping
-    public User createUser(@RequestBody UserDto dto){
-        return userService.addUser(dto.email, dto.naam, dto.voornaam, dto.password);
+    public UserDto addUser(@RequestBody User user){
+
+        User returnedUser = userService.addUser(user);
+        return returnedUser;
     }
 
+    @PutMapping("{id}")
+    public UserDto
 
-    @PostMapping(value = "/{id}/todo")
-    public User createTodo(@PathVariable("id") Integer id, @RequestBody ToDoDto dto){
 
-
-        return userService.createToDoForUser(id, dto.titel, dto.commentaar, dto.status,dto.expiryDate);
-    }
+   // @PostMapping(value = "/{id}/todo")
+//    public User createTodo(@PathVariable("id") Integer id, @RequestBody ToDoDto dto){
+//
+//
+//        return userService.createToDoForUser(id, dto.titel, dto.commentaar, dto.status,dto.expiryDate);
+//    }
 
     @GetMapping(value = "/{id}")
     public User getUser(@PathVariable("id") Integer id){

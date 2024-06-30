@@ -21,8 +21,8 @@ public class UserService {
     }
 
     @Transactional
-    public User addUser(String email, String naam, String voornaam, String password){
-        return repo.save(new User(email,naam,voornaam,password));
+    public User addUser(User user){
+        return repo.save(user);
     }
 
 

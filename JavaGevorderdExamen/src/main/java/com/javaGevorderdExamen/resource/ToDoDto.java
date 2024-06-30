@@ -8,10 +8,10 @@ import java.util.Date;
 public class ToDoDto {
 
 
-    public String titel;
-    public String commentaar;
-    public boolean status;
-    public LocalDate expiryDate;
+    private String titel;
+    private String commentaar;
+    private boolean status;
+    private LocalDate expiryDate;
 
     public String getTitel() {
         return titel;

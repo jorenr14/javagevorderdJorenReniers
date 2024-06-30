@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 @RestController
-@RequestMapping("/todos")
+@RequestMapping("/users/todos")
 public class TodoController {
 
     @Autowired
     private ToDoService toDoService;
 
     @PostMapping
-    public ToDo  createTodo(@RequestBody ToDoDto dto){
+    public ToDo  createTodo(@RequestBody ToDo todo){
+        ToDo returnedTodo = toDoService.addToDo(todo);
 
-        return toDoService.addToDo(dto.titel,dto.commentaar,dto.status,dto.expiryDate);
+        return returnedTodo;
 
     }
 

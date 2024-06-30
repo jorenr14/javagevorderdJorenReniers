@@ -24,9 +24,11 @@ public class ToDoService {
     }
 
     @Transactional
-    public ToDo addToDo(String titel, String commentaar, boolean status, LocalDate expiryDate) {
+    public ToDo addToDo(ToDo todo) {
 
-       return repo.save(new ToDo(titel,commentaar,status,expiryDate));
+
+
+       return repo.save(todo);
 
 
     }
