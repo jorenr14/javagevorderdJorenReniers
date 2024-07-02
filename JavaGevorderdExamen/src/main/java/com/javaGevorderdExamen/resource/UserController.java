@@ -6,7 +6,6 @@ import com.javaGevorderdExamen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -23,14 +22,22 @@ public class UserController {
 
 
     @PostMapping
-    public UserDto addUser(@RequestBody User user){
+    public UserDTO addUser(@RequestBody User user){
 
         User returnedUser = userService.addUser(user);
-        return returnedUser;
+        return DTOConverter.convertToToDoDTO(returnedUser);
     }
 
     @PutMapping("{id}")
-    public UserDto
+    public UserDTO editUser(@PathVariable Integer id, @RequestBody User user){
+        User returnedUser = userService.editUser(id,user);
+        return DTOConverter.convertToToDoDTO(returnedUser);
+    };
+
+    @DeleteMapping("{id}")
+    public void deleteUser(@PathVariable Integer id, @RequestBody User user){
+        userService.deleteUser(id);
+    }
 
 
    // @PostMapping(value = "/{id}/todo")

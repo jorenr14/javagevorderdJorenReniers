@@ -1,17 +1,24 @@
 package com.javaGevorderdExamen.resource;
 
-import com.javaGevorderdExamen.entity.ToDo;
-
 import java.time.LocalDate;
-import java.util.Date;
 
-public class ToDoDto {
+public class ToDoDTO {
 
 
+    private int id;
     private String titel;
     private String commentaar;
     private boolean status;
     private LocalDate expiryDate;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitel() {
         return titel;

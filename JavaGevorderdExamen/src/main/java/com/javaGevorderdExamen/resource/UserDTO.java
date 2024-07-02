@@ -1,11 +1,24 @@
 package com.javaGevorderdExamen.resource;
 
-public class UserDto {
+import java.util.ArrayList;
+import java.util.List;
 
+public class UserDTO {
+
+    private int id;
     private String email;
     private String naam;
     private String voornaam;
     private String password;
+    private List<ToDoDTO> toDos = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -37,5 +50,13 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<ToDoDTO> getTodos() {
+        return toDos;
+    }
+
+    public void setTodos(List<ToDoDTO> toDos) {
+        this.toDos = toDos;
     }
 }
