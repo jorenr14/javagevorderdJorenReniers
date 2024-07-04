@@ -1,7 +1,9 @@
 package com.javaGevorderdExamen.service;
 
+import com.javaGevorderdExamen.entity.ToDo;
 import com.javaGevorderdExamen.entity.User;
 import com.javaGevorderdExamen.repository.UserCrudRepo;
+import com.javaGevorderdExamen.resource.AddToDoToUserDto;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,12 +51,6 @@ public class UserService {
 
 
 
-    public User createToDoForUser(Integer userId, String todoTitel, String todoCommentaar, Boolean todoStatus, LocalDate todoExpiryDate){
-        User user = getUserById(userId);
-        user.addToDo(todoTitel,todoCommentaar,todoStatus,todoExpiryDate);
-        return repo.save(user);
-
-   }
 
 
 

@@ -9,8 +9,5 @@ public interface UserCrudRepo extends CrudRepository<User, Integer> {
    List<User> findAll();
    List<User> findByNaamLike(String naam);
 
-   List<User> findByEmail(String Email);
-   List<User> findByNaamStartingWith(String prefix);
-
 
 }
