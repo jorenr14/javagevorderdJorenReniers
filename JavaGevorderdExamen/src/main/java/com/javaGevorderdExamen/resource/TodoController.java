@@ -4,6 +4,7 @@ package com.javaGevorderdExamen.resource;
 import com.javaGevorderdExamen.repository.TodoCrudRepo;
 import com.javaGevorderdExamen.service.ToDoService;
 import com.javaGevorderdExamen.entity.ToDo;
+import com.javaGevorderdExamen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ public class TodoController {
 
     @Autowired
     private ToDoService toDoService;
+
     @Autowired
     private TodoCrudRepo todoCrudRepo;
 
@@ -46,6 +48,13 @@ public class TodoController {
         return todo;
 
     }
+
+    @DeleteMapping("deletetodo/{id}")
+    public void deleteToDoById(@PathVariable("id") Integer id){
+        toDoService.deleteToDoById(id);
+    }
+
+
 
 
 
