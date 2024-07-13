@@ -1,23 +1,35 @@
-package com.javaGevorderdExamen.resource;
+package com.javagevorderdexamen.entity;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class ToDoDTO {
+@Entity
+public class ToDo {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String titel;
     private String commentaar;
     private boolean status;
     private LocalDate expiryDate;
-    private int userId;
 
-    public int getUserId() {
-        return userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
+
+    public ToDo(String titel, String commentaar, boolean status, LocalDate expiryDate) {
+        this.titel = titel;
+        this.commentaar = commentaar;
+        this.expiryDate = expiryDate;
+        this.status = status;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public ToDo() {
+
     }
 
     public int getId() {
@@ -58,5 +70,13 @@ public class ToDoDTO {
 
     public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

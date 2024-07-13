@@ -1,8 +1,8 @@
-package com.javaGevorderdExamen.repository;
+package com.javagevorderdexamen.repository;
 
 import java.util.List;
 
-import com.javaGevorderdExamen.entity.User;
+import com.javagevorderdexamen.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserCrudRepo extends CrudRepository<User, Integer> {

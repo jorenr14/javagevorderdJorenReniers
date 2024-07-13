@@ -1,4 +1,4 @@
-package com.javaGevorderdExamen;
+package com.javagevorderdexamen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

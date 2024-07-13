@@ -1,6 +1,5 @@
-package com.javaGevorderdExamen.resource;
+package com.javagevorderdexamen.resource;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
@@ -10,7 +9,8 @@ public class UserDTO {
     private String naam;
     private String voornaam;
     private String password;
-    private List<ToDoDTO> toDos = new ArrayList<>();
+    private List<ToDoDTO > toDos;
+    //private List<ToDoDTO> toDos = new ArrayList<>(); origineel werkend
 
     public int getId() {
         return id;

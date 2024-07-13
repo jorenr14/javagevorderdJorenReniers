@@ -1,10 +1,8 @@
-package com.javaGevorderdExamen.repository;
+package com.javagevorderdexamen.repository;
 
-import com.javaGevorderdExamen.entity.ToDo;
+import com.javagevorderdexamen.entity.ToDo;
 import org.springframework.data.repository.CrudRepository;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public interface TodoCrudRepo extends CrudRepository<ToDo,Integer> {

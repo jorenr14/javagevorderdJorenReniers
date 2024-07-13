@@ -1,10 +1,9 @@
-package com.javaGevorderdExamen.entity;
+package com.javagevorderdexamen.entity;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Table(name= "Users")
@@ -21,8 +20,8 @@ public class User {
     private String naam;
     private String voornaam;
     private String password;
-    @OneToMany
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<ToDo> toDos = new ArrayList<>();
 
 
@@ -83,18 +82,29 @@ public class User {
         return toDos;
     }
 
-    @OneToMany(mappedBy = "user")
-
-    public void setToDos(List<ToDo> toDos) {
-        this.toDos = toDos;
-    }
-
-    public void addToDo(String titel, String commentaar, Boolean status, LocalDate expirydate){
-        if( toDos == null){
-            toDos = new ArrayList<>();
-        }
-
-        ToDo todo = new ToDo(titel,commentaar,status,expirydate);
+    public void addToDo(ToDo todo) {
         toDos.add(todo);
+        todo.setUser(this);
     }
+
+    public void removeToDo(ToDo todo) {
+        toDos.remove(todo);
+        todo.setUser(null);
+    }
+//
+    // Origineel
+//    @OneToMany(mappedBy = "user")
+//
+//    public void setToDos(List<ToDo> toDos) {
+//        this.toDos = toDos;
+//    }
+//
+//    public void addToDo(String titel, String commentaar, Boolean status, LocalDate expirydate){
+//        if( toDos == null){
+//            toDos = new ArrayList<>();
+//        }
+//
+//        ToDo todo = new ToDo(titel,commentaar,status,expirydate);
+//        toDos.add(todo);
+//    }
 }

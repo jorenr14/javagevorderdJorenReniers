@@ -1,7 +1,7 @@
-package com.javaGevorderdExamen.resource;
+package com.javagevorderdexamen.resource;
 
-import com.javaGevorderdExamen.entity.ToDo;
-import com.javaGevorderdExamen.entity.User;
+import com.javagevorderdexamen.entity.ToDo;
+import com.javagevorderdexamen.entity.User;
 
 import java.util.stream.Collectors;
 

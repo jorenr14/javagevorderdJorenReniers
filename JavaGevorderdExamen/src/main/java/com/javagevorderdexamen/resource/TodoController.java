@@ -1,18 +1,16 @@
-package com.javaGevorderdExamen.resource;
+package com.javagevorderdexamen.resource;
 
 
-import com.javaGevorderdExamen.entity.User;
-import com.javaGevorderdExamen.repository.TodoCrudRepo;
-import com.javaGevorderdExamen.repository.UserCrudRepo;
-import com.javaGevorderdExamen.service.ToDoService;
-import com.javaGevorderdExamen.entity.ToDo;
-import com.javaGevorderdExamen.service.UserNotFoundException;
+import com.javagevorderdexamen.entity.User;
+import com.javagevorderdexamen.repository.TodoCrudRepo;
+import com.javagevorderdexamen.repository.UserCrudRepo;
+import com.javagevorderdexamen.service.ToDoService;
+import com.javagevorderdexamen.entity.ToDo;
+import com.javagevorderdexamen.service.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 @RestController
 @RequestMapping("/users/todos")
@@ -46,13 +44,18 @@ public class TodoController {
         //mapping gaan gebruiken
         Optional<User> userOptional = userCrudRepo.findById(addToDoToUserDto.getUserId());
         if (userOptional.isPresent())  {
+            User user = userOptional.get();
+
             ToDo todo = new ToDo();
             todo.setTitel(addToDoToUserDto.getTitel());
             todo.setCommentaar(addToDoToUserDto.getCommentaar());
             todo.setStatus(addToDoToUserDto.isStatus());
             todo.setExpiryDate(addToDoToUserDto.getExpiryDate());
+            user.addToDo(todo);
 
-            todo.setUser(userOptional.get());
+            userCrudRepo.save(user);
+
+//            todo.setUser(userOptional.get()); origineel werkend
             ToDo savedTodo = todoCrudRepo.save(todo);
 
             ToDoDTO todoDTO = addToDoToUserDto.toDto(savedTodo);
