@@ -16,31 +16,36 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @AutoConfigureWebTestClient
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 
 public class AnIntegrationTest {
 
     @Autowired
     private WebTestClient client;
+    @Autowired
+    private UserService userService;
 
     @Test
-    public void ValidateThatAUserCanBeCreated(){
+    public void validateThatAUserCanBeCreated(){
+
+        //begrijp wat hier gebeurt
         UserBodyValue user = new UserBodyValue();
         user.naam ="Reniers";
         user.voornaam = "Joren";
 
         client.post()
-                .uri("/users/")
+                .uri("/users")
                 .bodyValue(user)
                 .exchange()
                 .expectBody()
-                .json("{\"id\":2,\"naam\":\"Reniers\",\"voornaam\":\"Joren\"}");
+                .json("{\"id\":1,\"naam\":\"Reniers\",\"voornaam\":\"Joren\"}");
 
 
     }
-    private UserService userService;
+
+
     @Test
-    public void ValidateThatAUserCanBeCreated2(){
+    public void validateThatAUserCanBeCreated2(){
         userService.addUser(new User("reniers.joren@gmail.com","Reniers","Joren","TestPassword"));
         Assertions.assertEquals("Reniers", userService.getAllUsers().iterator().next().getNaam());
 

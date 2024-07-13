@@ -10,7 +10,15 @@ public class ToDoDTO {
     private String commentaar;
     private boolean status;
     private LocalDate expiryDate;
+    private int userId;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getId() {
         return id;

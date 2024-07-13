@@ -18,9 +18,9 @@ public class JavaGevorderdExamenApplication {
 		//repo.deleteAll();
 
 
-//		repo.save(new User(1,"reniers.joren@gmail.com","Reniers","Joren","joren"));
-//	    repo.save(new User(2,"dries.natasja@gmail.com","Dries","Natasja","natasja"));
-//		repo.save(new User(3,"jacobs.peter@gmail.com","Jacobs","Peter","peter"));
+		//repo.save(new User("reniers.joren@gmail.com","Reniers","Joren","joren"));
+		//repo.save(new User("dries.natasja@gmail.com","Dries","Natasja","natasja"));
+		//repo.save(new User("janssens.jan@gmail.com","Janssens","Jan","janj"));
 
 		System.out.println("All users");;
 		for(User user : repo.findAll()){

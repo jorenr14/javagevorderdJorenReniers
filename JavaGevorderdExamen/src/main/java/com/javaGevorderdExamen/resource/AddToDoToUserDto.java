@@ -1,5 +1,7 @@
 package com.javaGevorderdExamen.resource;
 
+import com.javaGevorderdExamen.entity.ToDo;
+
 import java.time.LocalDate;
 
 public class AddToDoToUserDto {
@@ -48,5 +50,18 @@ public class AddToDoToUserDto {
 
     public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    public ToDoDTO toDto(ToDo todo) {
+        ToDoDTO dto = new ToDoDTO();
+        dto.setId(todo.getId());
+        dto.setTitel(todo.getTitel());
+        dto.setCommentaar(todo.getCommentaar());
+        dto.setStatus(todo.isStatus());
+        dto.setExpiryDate(todo.getExpiryDate());
+        dto.setUserId(todo.getUser().getId());
+        return dto;
+
+
     }
 }
