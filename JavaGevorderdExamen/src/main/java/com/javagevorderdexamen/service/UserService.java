@@ -24,9 +24,10 @@ public class UserService {
     }
 
 
-    public void deleteUser(int id){
-
+    public User deleteUser(int id){
+        User user = repo.findById(id).orElseThrow(RuntimeException::new);
       repo.deleteById(id);
+      return user;
     }
 
     public User editUser(int id, User user ){
