@@ -1,4 +1,4 @@
-package com.javagevorderdexamen.entity;
+package be.ucll.javagevorderdexamen.entity;
 
 import java.util.ArrayList;
 import java.util.List;

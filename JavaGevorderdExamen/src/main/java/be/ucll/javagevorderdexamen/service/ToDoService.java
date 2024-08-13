@@ -1,9 +1,9 @@
-package com.javagevorderdexamen.service;
+package be.ucll.javagevorderdexamen.service;
 
-import com.javagevorderdexamen.entity.ToDo;
-import com.javagevorderdexamen.entity.User;
-import com.javagevorderdexamen.repository.TodoCrudRepo;
-import com.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.entity.User;
+import be.ucll.javagevorderdexamen.repository.TodoCrudRepo;
+import be.ucll.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.entity.ToDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

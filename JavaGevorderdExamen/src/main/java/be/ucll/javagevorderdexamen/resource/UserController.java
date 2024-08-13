@@ -1,8 +1,8 @@
-package com.javaGevorderdExamen.resource;
+package be.ucll.javagevorderdexamen.resource;
 
 
-import com.javaGevorderdExamen.entity.User;
-import com.javaGevorderdExamen.service.UserService;
+import be.ucll.javagevorderdexamen.service.UserService;
+import be.ucll.javagevorderdexamen.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +31,7 @@ public class UserController {
     public User getUser(@PathVariable("id") Integer id){
         return userService.getUserById(id);
     }
+
     @PutMapping("/edit/{id}")
     public UserDTO editUser(@PathVariable Integer id, @RequestBody User user){
         User returnedUser = userService.editUser(id,user);
@@ -38,7 +39,7 @@ public class UserController {
     };
 
     @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable Integer id, @RequestBody User user){
+    public void deleteUser(@PathVariable Integer id){
         userService.deleteUser(id);
     }
 

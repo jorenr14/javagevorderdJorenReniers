@@ -1,7 +1,7 @@
-package com.javagevorderdexamen;
+package be.ucll.javagevorderdexamen;
 
-import com.javagevorderdexamen.entity.User;
-import com.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.entity.User;
+import be.ucll.javagevorderdexamen.repository.UserCrudRepo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,12 +15,7 @@ public class JavaGevorderdExamenApplication {
 
 		UserCrudRepo repo = context.getBean(UserCrudRepo.class);
 
-		//repo.deleteAll();
 
-
-//		repo.save(new User("reniers.joren@gmail.com","Reniers","Joren","joren"));
-//		repo.save(new User("dries.natasja@gmail.com","Dries","Natasja","natasja"));
-//		repo.save(new User("janssens.jan@gmail.com","Janssens","Jan","janj"));
 
 		System.out.println("All users");;
 		for(User user : repo.findAll()){

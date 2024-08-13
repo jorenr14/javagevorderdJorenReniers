@@ -1,4 +1,4 @@
-package com.javagevorderdexamen;
+package be.ucll.javagevorderdexamen;
 
 
 public class UserControllerTest {

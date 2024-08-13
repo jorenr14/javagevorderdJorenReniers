@@ -1,4 +1,4 @@
-package com.javagevorderdexamen.service;
+package be.ucll.javagevorderdexamen.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,8 +1,8 @@
-package com.javagevorderdexamen.integration;
+package be.ucll.javagevorderdexamen.integration;
 
 
-import com.javagevorderdexamen.entity.User;
-import com.javagevorderdexamen.service.UserService;
+import be.ucll.javagevorderdexamen.entity.User;
+import be.ucll.javagevorderdexamen.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

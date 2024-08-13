@@ -1,12 +1,12 @@
-package com.javagevorderdexamen.resource;
+package be.ucll.javagevorderdexamen.resource;
 
 
-import com.javagevorderdexamen.entity.User;
-import com.javagevorderdexamen.repository.TodoCrudRepo;
-import com.javagevorderdexamen.repository.UserCrudRepo;
-import com.javagevorderdexamen.service.ToDoService;
-import com.javagevorderdexamen.entity.ToDo;
-import com.javagevorderdexamen.service.UserNotFoundException;
+import be.ucll.javagevorderdexamen.repository.TodoCrudRepo;
+import be.ucll.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.entity.User;
+import be.ucll.javagevorderdexamen.service.ToDoService;
+import be.ucll.javagevorderdexamen.entity.ToDo;
+import be.ucll.javagevorderdexamen.service.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

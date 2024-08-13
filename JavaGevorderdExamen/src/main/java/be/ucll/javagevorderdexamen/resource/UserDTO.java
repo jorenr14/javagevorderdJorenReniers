@@ -1,4 +1,4 @@
-package com.javagevorderdexamen.resource;
+package be.ucll.javagevorderdexamen.resource;
 
 import java.util.List;
 

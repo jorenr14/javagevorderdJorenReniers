@@ -1,6 +1,6 @@
-package com.javagevorderdexamen.resource;
+package be.ucll.javagevorderdexamen.resource;
 
-import com.javagevorderdexamen.entity.ToDo;
+import be.ucll.javagevorderdexamen.entity.ToDo;
 
 import java.util.ArrayList;
 import java.util.List;

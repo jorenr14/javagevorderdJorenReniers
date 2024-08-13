@@ -1,4 +1,4 @@
-package com.javagevorderdexamen;
+package be.ucll.javagevorderdexamen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

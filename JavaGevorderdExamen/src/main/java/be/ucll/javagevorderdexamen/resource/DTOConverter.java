@@ -1,13 +1,31 @@
-package com.javagevorderdexamen.resource;
+package be.ucll.javagevorderdexamen.resource;
 
-import com.javagevorderdexamen.entity.ToDo;
-import com.javagevorderdexamen.entity.User;
+import be.ucll.javagevorderdexamen.entity.ToDo;
+import be.ucll.javagevorderdexamen.entity.User;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class DTOConverter {
 
+    public static UserDTO convertToUserDTO(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setNaam(user.getNaam());
+        userDTO.setVoornaam(user.getVoornaam());
+
+        List<ToDoDTO> toDoDTOs = user.getToDos().stream()
+                .map(DTOConverter::convertToToDoDTO)
+                .collect(Collectors.toList());
+
+        userDTO.setTodos(toDoDTOs);
+        return userDTO;
+    }
+
     public static UserDTO convertToToDoDTO(User user) {
+
+
 
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());

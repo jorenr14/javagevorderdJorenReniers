@@ -1,11 +1,12 @@
-package com.javagevorderdexamen.service;
+package be.ucll.javagevorderdexamen.service;
 
-import com.javagevorderdexamen.entity.User;
-import com.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.repository.UserCrudRepo;
+import be.ucll.javagevorderdexamen.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -31,12 +32,18 @@ public class UserService {
     }
 
     public User editUser(int id, User user ){
-        User searchedUser = repo.findById(id).orElseThrow(UserNotFoundException::new);
-        searchedUser.setVoornaam(user.getVoornaam());
-        searchedUser.setNaam(user.getNaam());
-        searchedUser.setEmail(user.getEmail());
-        searchedUser.setPassword(user.getPassword());
-        return searchedUser;
+        Optional<User> optionalUser = repo.findById(id);
+        if(optionalUser.isPresent()) {
+            User searchedUser = optionalUser.get();
+            searchedUser.setVoornaam(user.getVoornaam());
+            searchedUser.setNaam(user.getNaam());
+            searchedUser.setEmail(user.getEmail());
+            searchedUser.setPassword(user.getPassword());
+            repo.save(searchedUser);
+            return searchedUser;
+        }else {
+            return null;
+        }
     }
 
     public List<User> getAllUsers(){

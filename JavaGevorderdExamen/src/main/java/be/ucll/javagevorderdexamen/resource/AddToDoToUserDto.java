@@ -1,11 +1,11 @@
-package com.javagevorderdexamen.resource;
+package be.ucll.javagevorderdexamen.resource;
+
+import be.ucll.javagevorderdexamen.entity.ToDo;
 
 import java.time.LocalDate;
 
-public class ToDoDTO {
+public class AddToDoToUserDto {
 
-
-    private int id;
     private String titel;
     private String commentaar;
     private boolean status;
@@ -18,14 +18,6 @@ public class ToDoDTO {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitel() {
@@ -58,5 +50,18 @@ public class ToDoDTO {
 
     public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    public ToDoDTO toDto(ToDo todo) {
+        ToDoDTO dto = new ToDoDTO();
+        dto.setId(todo.getId());
+        dto.setTitel(todo.getTitel());
+        dto.setCommentaar(todo.getCommentaar());
+        dto.setStatus(todo.isStatus());
+        dto.setExpiryDate(todo.getExpiryDate());
+        dto.setUserId(todo.getUser().getId());
+        return dto;
+
+
     }
 }
