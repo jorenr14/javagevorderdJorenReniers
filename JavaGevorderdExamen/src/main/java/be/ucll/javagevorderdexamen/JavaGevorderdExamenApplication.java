@@ -15,8 +15,6 @@ public class JavaGevorderdExamenApplication {
 
 		UserCrudRepo repo = context.getBean(UserCrudRepo.class);
 
-
-
 		System.out.println("All users");;
 		for(User user : repo.findAll()){
 			System.out.println(user);
@@ -25,11 +23,7 @@ public class JavaGevorderdExamenApplication {
 			var naam = user.getNaam();
 			System.out.println(naam);
 		};
-
-
 		System.out.println(repo);
-
-
 
 	}
 

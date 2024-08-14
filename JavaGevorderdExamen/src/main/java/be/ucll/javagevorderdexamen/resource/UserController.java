@@ -1,6 +1,7 @@
 package be.ucll.javagevorderdexamen.resource;
 
 
+import be.ucll.javagevorderdexamen.mapper.UserToDtoConverter;
 import be.ucll.javagevorderdexamen.service.UserService;
 import be.ucll.javagevorderdexamen.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class UserController {
     public UserDTO addUser(@RequestBody User user){
 
         User returnedUser = userService.addUser(user);
-        return DTOConverter.convertToToDoDTO(returnedUser);
+        return UserToDtoConverter.convertToToDoDTO(returnedUser);
     }
     @GetMapping(value = "/{id}")
     public User getUser(@PathVariable("id") Integer id){
@@ -35,14 +36,12 @@ public class UserController {
     @PutMapping("/edit/{id}")
     public UserDTO editUser(@PathVariable Integer id, @RequestBody User user){
         User returnedUser = userService.editUser(id,user);
-        return DTOConverter.convertToToDoDTO(returnedUser);
+        return UserToDtoConverter.convertToToDoDTO(returnedUser);
     };
 
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Integer id){
         userService.deleteUser(id);
     }
-
-
 
 }

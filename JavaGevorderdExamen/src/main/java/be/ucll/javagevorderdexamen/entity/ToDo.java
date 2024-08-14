@@ -28,9 +28,7 @@ public class ToDo {
         this.status = status;
     }
 
-    public ToDo() {
-
-    }
+    public ToDo() {}
 
     public int getId() {
         return id;

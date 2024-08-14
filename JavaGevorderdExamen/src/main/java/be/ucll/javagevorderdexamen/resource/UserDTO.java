@@ -3,7 +3,6 @@ package be.ucll.javagevorderdexamen.resource;
 import java.util.List;
 
 public class UserDTO {
-
     private int id;
     private String email;
     private String naam;

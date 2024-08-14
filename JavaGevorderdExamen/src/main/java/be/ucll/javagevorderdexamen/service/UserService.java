@@ -18,19 +18,14 @@ public class UserService {
         this.repo = repo;
 
     }
-
-
     public User addUser(User user){
         return repo.save(user);
     }
-
-
     public User deleteUser(int id){
         User user = repo.findById(id).orElseThrow(RuntimeException::new);
       repo.deleteById(id);
       return user;
     }
-
     public User editUser(int id, User user ){
         Optional<User> optionalUser = repo.findById(id);
         if(optionalUser.isPresent()) {

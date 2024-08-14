@@ -12,11 +12,8 @@ import java.util.Optional;
 
 @Service
 public class ToDoService {
-
     private final TodoCrudRepo todoCrudRepo;
     private final UserCrudRepo userCrudRepo;
-
-
 
     @Autowired
     public ToDoService(TodoCrudRepo todoCrudRepo, UserCrudRepo userCrudRepo) {
@@ -24,12 +21,8 @@ public class ToDoService {
         this.userCrudRepo = userCrudRepo;
     }
 
-
-
     public ToDo addToDo(ToDo todo) {
-
        return todoCrudRepo.save(todo);
-
     }
 
     public ToDo addTodoToUser(int userId, ToDo todo) {
@@ -41,13 +34,9 @@ public class ToDoService {
         }
         return null;
     }
-
-
     public List<ToDo> getAllToDos() {
         return (List<ToDo>) todoCrudRepo.findAll();
     }
-
-
     public ToDo getToDoById(int id) {
         return todoCrudRepo.findById(id).orElseThrow(ToDoNotFoundException::new);
     }

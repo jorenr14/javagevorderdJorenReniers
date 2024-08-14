@@ -41,21 +41,16 @@ public class TodoController {
     @PostMapping("/addtodo")
     public ToDoDTO addToDoToUser(@RequestBody AddToDoToUserDto addToDoToUserDto) throws Throwable {
 
-        //mapping gaan gebruiken
         Optional<User> userOptional = userCrudRepo.findById(addToDoToUserDto.getUserId());
         if (userOptional.isPresent())  {
             User user = userOptional.get();
-
             ToDo todo = new ToDo();
             todo.setTitel(addToDoToUserDto.getTitel());
             todo.setCommentaar(addToDoToUserDto.getCommentaar());
             todo.setStatus(addToDoToUserDto.isStatus());
             todo.setExpiryDate(addToDoToUserDto.getExpiryDate());
             user.addToDo(todo);
-
             userCrudRepo.save(user);
-
-//            todo.setUser(userOptional.get()); origineel werkend
             ToDo savedTodo = todoCrudRepo.save(todo);
 
             ToDoDTO todoDTO = addToDoToUserDto.toDto(savedTodo);
@@ -69,7 +64,5 @@ public class TodoController {
     public void deleteToDoById(@PathVariable("id") Integer id){
         toDoService.deleteToDoById(id);
     }
-
-
 
 }

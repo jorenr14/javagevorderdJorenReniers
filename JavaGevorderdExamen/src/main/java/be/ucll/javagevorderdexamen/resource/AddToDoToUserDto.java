@@ -62,6 +62,5 @@ public class AddToDoToUserDto {
         dto.setUserId(todo.getUser().getId());
         return dto;
 
-
     }
 }

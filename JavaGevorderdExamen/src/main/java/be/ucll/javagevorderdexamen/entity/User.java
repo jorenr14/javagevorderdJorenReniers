@@ -9,13 +9,9 @@ import jakarta.persistence.*;
 @Table(name= "Users")
 @Entity
 public class User {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
-
     private String email;
     private String naam;
     private String voornaam;
@@ -24,14 +20,12 @@ public class User {
     @JsonManagedReference
     private List<ToDo> toDos = new ArrayList<>();
 
+    public User() {
+    }
 
+    ;
 
-
-    public User(){
-
-    };
-
-    public User( String email, String naam, String voornaam, String password) {
+    public User(String email, String naam, String voornaam, String password) {
         this.email = email;
         this.naam = naam;
         this.voornaam = voornaam;
@@ -91,20 +85,4 @@ public class User {
         toDos.remove(todo);
         todo.setUser(null);
     }
-//
-    // Origineel
-//    @OneToMany(mappedBy = "user")
-//
-//    public void setToDos(List<ToDo> toDos) {
-//        this.toDos = toDos;
-//    }
-//
-//    public void addToDo(String titel, String commentaar, Boolean status, LocalDate expirydate){
-//        if( toDos == null){
-//            toDos = new ArrayList<>();
-//        }
-//
-//        ToDo todo = new ToDo(titel,commentaar,status,expirydate);
-//        toDos.add(todo);
-//    }
 }
