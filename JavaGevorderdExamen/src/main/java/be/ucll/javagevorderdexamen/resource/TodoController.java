@@ -1,6 +1,7 @@
 package be.ucll.javagevorderdexamen.resource;
 
 
+import be.ucll.javagevorderdexamen.mapper.ToDoToDtoConverter;
 import be.ucll.javagevorderdexamen.repository.TodoCrudRepo;
 import be.ucll.javagevorderdexamen.repository.UserCrudRepo;
 import be.ucll.javagevorderdexamen.entity.User;
@@ -25,10 +26,10 @@ public class TodoController {
 
 
     @PostMapping
-    public ToDo  createTodo(@RequestBody ToDo todo){
+    public ToDoDTO  createTodo(@RequestBody ToDo todo){
         ToDo returnedTodo = toDoService.addToDo(todo);
 
-        return returnedTodo;
+        return ToDoToDtoConverter.convertToToDoDTO(returnedTodo);
 
     }
 
@@ -51,9 +52,9 @@ public class TodoController {
             todo.setExpiryDate(addToDoToUserDto.getExpiryDate());
             user.addToDo(todo);
             userCrudRepo.save(user);
-            ToDo savedTodo = todoCrudRepo.save(todo);
 
-            ToDoDTO todoDTO = addToDoToUserDto.toDto(savedTodo);
+
+            ToDoDTO todoDTO = ToDoToDtoConverter.convertToToDoDTO(todo);
             return todoDTO;
         }else{
             throw new UserNotFoundException();

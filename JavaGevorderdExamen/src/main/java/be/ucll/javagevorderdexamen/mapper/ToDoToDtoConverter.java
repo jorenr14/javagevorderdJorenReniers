@@ -7,14 +7,13 @@ public class ToDoToDtoConverter {
 
     public static ToDoDTO convertToToDoDTO(ToDo todo) {
         ToDoDTO toDoDTO = new ToDoDTO();
-        toDoDTO.setId(toDoDTO.getId());
-        toDoDTO.setTitel(toDoDTO.getTitel());
-        toDoDTO.setCommentaar(toDoDTO.getCommentaar());
-        toDoDTO.setExpiryDate(toDoDTO.getExpiryDate());
-        toDoDTO.setStatus(toDoDTO.isStatus());
+        toDoDTO.setId(todo.getId());
+        toDoDTO.setTitel(todo.getTitel());
+        toDoDTO.setCommentaar(todo.getCommentaar());
+        toDoDTO.setExpiryDate(todo.getExpiryDate());
+        toDoDTO.setStatus(todo.isStatus());
+        toDoDTO.setUserId(todo.getUser().getId());
 
         return toDoDTO;
-
-
     }
 }

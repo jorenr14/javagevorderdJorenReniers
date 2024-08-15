@@ -21,9 +21,7 @@ public class User {
     private List<ToDo> toDos = new ArrayList<>();
 
     public User() {
-    }
-
-    ;
+    };
 
     public User(String email, String naam, String voornaam, String password) {
         this.email = email;

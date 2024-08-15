@@ -26,7 +26,7 @@ public class UserController {
     public UserDTO addUser(@RequestBody User user){
 
         User returnedUser = userService.addUser(user);
-        return UserToDtoConverter.convertToToDoDTO(returnedUser);
+        return UserToDtoConverter.convertToUserDTO(returnedUser);
     }
     @GetMapping(value = "/{id}")
     public User getUser(@PathVariable("id") Integer id){
@@ -36,7 +36,7 @@ public class UserController {
     @PutMapping("/edit/{id}")
     public UserDTO editUser(@PathVariable Integer id, @RequestBody User user){
         User returnedUser = userService.editUser(id,user);
-        return UserToDtoConverter.convertToToDoDTO(returnedUser);
+        return UserToDtoConverter.convertToUserDTO(returnedUser);
     };
 
     @DeleteMapping("/delete/{id}")
